@@ -54,7 +54,15 @@ export default function List(props){
         alert("Dane zostały wyczyszczone")
     }
     const mapHandle = () => {
-        props.navigation.navigate("itemmap", {items: array})
+        const temparray = []
+        array.map((e, index) => {
+            if(switches.arr[index] === true) {
+                console.log("Weszło")
+                temparray.push(e)
+            }
+        })
+        console.log(JSON.stringify(temparray))
+        props.navigation.navigate("itemmap", {items: temparray})
     }
     const getPosition = async () => {
         setLoading(true)
